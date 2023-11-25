@@ -5,9 +5,6 @@ import { MdEmail } from "react-icons/md";
 import { FaGithub, FaPhone } from "react-icons/fa";
 
 const font = Font({ weight: "400", subsets: ["latin"] });
-// Possible Fonts
-// Ubuntu
-//
 
 export default function Home() {
   return (
@@ -18,7 +15,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <IconContext.Provider value={{ className: "text-4xl" }}>
-        <main // bg-gradient-to-br from-[#060b19] to-[#060b19]
+        <main
           className={`${font.className} align-center from-vulcan-950 to-vulcan-700 grid h-screen grid-cols-1 justify-center bg-gradient-to-br text-white md:grid-cols-2`}
         >
           <div className="m-auto text-2xl">
