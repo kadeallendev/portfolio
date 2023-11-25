@@ -37,7 +37,7 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="m-auto">Right Side</div>
+          <div className="m-auto"></div>
         </main>
       </IconContext.Provider>
     </>
