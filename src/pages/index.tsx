@@ -2,10 +2,31 @@ import { Titillium_Web as Font } from "next/font/google";
 import Head from "next/head";
 import { FaGithub, FaPhone } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import { useEffect, useState } from "react";
+import SocialLink from "~/components/SocialLink";
 
 const font = Font({ weight: "400", subsets: ["latin"] });
 
 export default function Home() {
+  const [screenSize, setScreenSize] = useState(getScreenSize());
+
+  function getScreenSize() {
+    return {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+  }
+
+  useEffect(() => {
+    const updateDimension = () => {
+      setScreenSize(getScreenSize());
+    };
+
+    window.addEventListener("resize", updateDimension);
+
+    return () => window.removeEventListener("resize", updateDimension);
+  }, [screenSize]);
+
   return (
     <>
       <Head>
@@ -14,10 +35,41 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main
-        className={`${font.className} align-center from-vulcan-950 to-vulcan-700 grid h-screen grid-cols-1 justify-center bg-gradient-to-br text-white md:grid-cols-2`}
+        className={`${font.className} align-center grid h-screen grid-cols-1 justify-center bg-gradient-to-br from-vulcan-950 to-vulcan-700 text-white lg:grid-cols-2`}
       >
-        <div className="m-auto text-2xl">
+        <div className="my-8 text-2xl md:m-auto">
           <h3 className="ml-10">Hi, I'm</h3>
+          <h1 className="mx-5 text-9xl">Kade Allen</h1>
+          <h3 className="ml-10">
+            a <b className="text-vulcan-200">developer</b> based in{" "}
+            {screenSize.width < 840 ? <br /> : null}
+            Wellington, New Zealand
+          </h3>
+          {
+            <div className="links-container mx-10 my-5 flex flex-row space-x-10">
+              <SocialLink link="http://www.github.com/kadeallen123">
+                Github
+              </SocialLink>
+              <SocialLink link="mailto:kadeallenprofessional@gmail.com">
+                Email
+              </SocialLink>
+              <SocialLink link="tel: +64 027 404 8738">Phone</SocialLink>
+            </div>
+          }
+          {/*
+          <div className="links-container my-5 grid grid-cols-3 justify-items-center">
+            <a href="https://www.github.com/kadeallen123" target="_blank">
+              <FaGithub className="social-icon" />
+            </a>
+            <a href="mailto:kadeallenprofessional@gmail.com">
+              <MdEmail className="social-icon" />
+            </a>
+            <a href="tel:027 404 8738">
+              <FaPhone className="social-icon" />
+            </a>
+          </div>
+        */}
+          {/* <h3 className="ml-10">Hi, I'm</h3>
           <h1 className="text-9xl">Kade Allen</h1>
           <h3 className="ml-10">
             a <b className="text-vulcan-200">developer</b> based in Wellington,
@@ -33,7 +85,7 @@ export default function Home() {
             <a href="tel:027 404 8738">
               <FaPhone className="social-icon" />
             </a>
-          </div>
+          </div> */}
         </div>
         <div className="m-auto"></div>
       </main>
