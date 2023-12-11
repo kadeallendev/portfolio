@@ -8,11 +8,7 @@ interface SocialLinkProps {
 
 export default function SocialLink({ link, children }: SocialLinkProps) {
   return (
-    <Link
-      href={link}
-      target="_blank"
-      className="text-2xl font-bold text-blue-400"
-    >
+    <Link href={link} target="_blank">
       {children}
     </Link>
   );

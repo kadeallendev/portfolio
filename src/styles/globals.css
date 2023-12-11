@@ -4,6 +4,7 @@
 
 @layer components {
 	.social-icon {
-		@apply text-2xl;
+		@apply text-3xl;
+		@apply text-white;
 	}
 }

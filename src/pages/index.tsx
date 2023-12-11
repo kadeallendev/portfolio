@@ -37,12 +37,14 @@ export default function Home() {
           </h3>
           <div className="links-container mx-10 my-5 flex flex-row space-x-10">
             <SocialLink link="http://www.github.com/kadeallen123">
-              Github
+              <FaGithub className="social-icon" />
             </SocialLink>
             <SocialLink link="mailto:kadeallenprofessional@gmail.com">
-              Email
+              <MdEmail className="social-icon" />
             </SocialLink>
-            <SocialLink link="tel: +64 027 404 8738">Phone</SocialLink>
+            <SocialLink link="tel: +64 027 404 8738">
+              <FaPhone className="social-icon" />
+            </SocialLink>
           </div>
         </div>
         <div className="m-auto"></div>
