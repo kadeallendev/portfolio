@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 interface SocialLinkProps {
   link: string; // The URL of the link
@@ -7,8 +8,12 @@ interface SocialLinkProps {
 
 export default function SocialLink({ link, children }: SocialLinkProps) {
   return (
-    <a href={link} target="_blank" className="text-2xl font-bold text-blue-400">
+    <Link
+      href={link}
+      target="_blank"
+      className="text-2xl font-bold text-blue-400"
+    >
       {children}
-    </a>
+    </Link>
   );
 }

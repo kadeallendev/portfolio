@@ -8,23 +8,13 @@ import SocialLink from "~/components/SocialLink";
 const font = Font({ weight: "400", subsets: ["latin"] });
 
 export default function Home() {
-  const [screenSize, setScreenSize] = useState(getScreenSize());
-
-  function getScreenSize() {
-    return {
-      width: window.innerWidth,
-      height: window.innerHeight,
-    };
-  }
+  const [screenSize, setScreenSize] = useState({ width: 1920, height: 1080 });
 
   useEffect(() => {
-    const updateDimension = () => {
-      setScreenSize(getScreenSize());
-    };
-
-    window.addEventListener("resize", updateDimension);
-
-    return () => window.removeEventListener("resize", updateDimension);
+    window.addEventListener("resize", () => {
+      setScreenSize({ width: window.innerWidth, height: window.innerHeight });
+    });
+    return () => window.removeEventListener("resize", () => {});
   }, [screenSize]);
 
   return (
@@ -45,17 +35,15 @@ export default function Home() {
             {screenSize.width < 840 ? <br /> : null}
             Wellington, New Zealand
           </h3>
-          {
-            <div className="links-container mx-10 my-5 flex flex-row space-x-10">
-              <SocialLink link="http://www.github.com/kadeallen123">
-                Github
-              </SocialLink>
-              <SocialLink link="mailto:kadeallenprofessional@gmail.com">
-                Email
-              </SocialLink>
-              <SocialLink link="tel: +64 027 404 8738">Phone</SocialLink>
-            </div>
-          }
+          <div className="links-container mx-10 my-5 flex flex-row space-x-10">
+            <SocialLink link="http://www.github.com/kadeallen123">
+              Github
+            </SocialLink>
+            <SocialLink link="mailto:kadeallenprofessional@gmail.com">
+              Email
+            </SocialLink>
+            <SocialLink link="tel: +64 027 404 8738">Phone</SocialLink>
+          </div>
         </div>
         <div className="m-auto"></div>
       </main>
