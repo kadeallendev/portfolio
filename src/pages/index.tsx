@@ -17,23 +17,6 @@ export default function Home() {
     return () => window.removeEventListener("resize", updateDimension);
   });
 
-  // function getScreenSize() {
-  //   return {
-  //     width: window.innerWidth,
-  //     height: window.innerHeight,
-  //   };
-  // }
-
-  // function updateDimension() {
-  //   setScreenSize(getScreenSize());
-  // }
-
-  // useEffect(() => {
-  //   window.addEventListener("resize", updateDimension);
-
-  //   return () => window.removeEventListener("resize", updateDimension);
-  // }, [screenSize]);
-
   return (
     <>
       <Head>
