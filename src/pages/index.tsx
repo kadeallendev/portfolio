@@ -11,11 +11,28 @@ export default function Home() {
   const [screenSize, setScreenSize] = useState({ width: 1920, height: 1080 });
 
   useEffect(() => {
-    window.addEventListener("resize", () => {
+    const updateDimension = () =>
       setScreenSize({ width: window.innerWidth, height: window.innerHeight });
-    });
-    return () => window.removeEventListener("resize", () => {});
-  }, [screenSize]);
+    window.addEventListener("resize", () => updateDimension());
+    return () => window.removeEventListener("resize", updateDimension);
+  });
+
+  // function getScreenSize() {
+  //   return {
+  //     width: window.innerWidth,
+  //     height: window.innerHeight,
+  //   };
+  // }
+
+  // function updateDimension() {
+  //   setScreenSize(getScreenSize());
+  // }
+
+  // useEffect(() => {
+  //   window.addEventListener("resize", updateDimension);
+
+  //   return () => window.removeEventListener("resize", updateDimension);
+  // }, [screenSize]);
 
   return (
     <>
