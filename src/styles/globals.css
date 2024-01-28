@@ -8,3 +8,12 @@
 		@apply text-white;
 	}
 }
+
+@layer base {
+	body {
+		background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+		--tw-gradient-from: #060b19 var(--tw-gradient-from-position);
+		--tw-gradient-to: rgb(11 30 70) var(--tw-gradient-to-position);
+		--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+	}
+}

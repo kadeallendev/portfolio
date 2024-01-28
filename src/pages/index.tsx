@@ -24,7 +24,8 @@ export default function Home() {
         <link rel="icon" href="/logo.jpg" />
       </Head>
       <main
-        className={`${titilliumWeb.className} align-center grid h-screen grid-cols-1 justify-center bg-gradient-to-br from-vulcan-950 to-vulcan-700 text-white lg:grid-cols-3`}
+        // bg-gradient-to-br from-vulcan-950 to-vulcan-700
+        className={`${titilliumWeb.className} align-center grid h-screen grid-cols-1 justify-center  text-white lg:grid-cols-3`}
       >
         <div className="col-span-2 my-8 text-2xl md:m-auto">
           <h3 className="ml-10">Hi, I'm</h3>
